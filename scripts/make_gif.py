@@ -36,14 +36,15 @@ def scroll_page():
 
     page_height = _DRIVER.execute_script("return document.body.parentNode.scrollHeight")
 
-    if _STOP_Y == "0":
-        _STOP_Y = page_height
+    _STOP_Y = int(_STOP_Y)
+
+    if _STOP_Y == 0:
+        _STOP_Y = int(page_height)
         print(f" - STOP Y not defined, _STOP_Y set to {_STOP_Y}")
-    elif _STOP_Y > page_height:
+    elif _STOP_Y > int(page_height):
         _STOP_Y = page_height
         print(f" - STOP Y greater than page height, _STOP_Y set to {_STOP_Y}")
 
-    _STOP_Y = int(_STOP_Y)
     _SCROLL_STEP = int(_SCROLL_STEP)
 
     _DRIVER.execute_script(f"window.scrollTo(0, {_START_Y})")

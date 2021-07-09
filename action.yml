@@ -26,7 +26,7 @@ inputs:
     required: false
     default: 1080
   start_y:
-    description: Position where GIF capture should start, defaults to 0
+    description: Position where GIF capture should start, defaults to 0 (px)
     required: false
     default: 0
   stop_y:
@@ -42,13 +42,13 @@ inputs:
     required: false
     default: 360
   scroll_step:
-    description: Number of pixels by scroll, defaults to 50 (px)
+    description: Number of pixels by scroll, defaults to 25 (px)
     required: false
-    default: 50
+    default: 25
   time_per_frame:
-    description: Milliseconds per frame, defaults to 200 (ms)
+    description: Milliseconds per frame, defaults to 100 (ms)
     required: false
-    default: 200
+    default: 100
   quality:
     description: Image quality, from 0 to 100, defaults to 95 (%)
     required: false

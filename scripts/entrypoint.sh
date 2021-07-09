@@ -14,6 +14,6 @@ export HOME=/github/home
 
 echo "_________ END GIF CREATION _________"
 
-echo " - Saving GIF to ${SAVE_PATH}${GIF_NAME}.gif"
+echo " - Saving GIF to ${SAVE_PATH} as ${GIF_NAME}.gif"
 
 cp "/app/${GIF_NAME}.gif" "/github/workspace${SAVE_PATH}"

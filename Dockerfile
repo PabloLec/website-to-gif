@@ -6,8 +6,8 @@ RUN DEBIAN_FRONTEND="noninteractive" pip install --upgrade --no-cache-dir --pref
 
 WORKDIR /app
 
-COPY entrypoint.sh .
-COPY make_gif.py .
+COPY scripts/entrypoint.sh .
+COPY scripts/make_gif.py .
 
 RUN chmod +x entrypoint.sh
 

@@ -3,6 +3,8 @@
 
 <p align="center">
     <img src="docs/images/ss_25_tps_100.gif">
+</p>
+<p align="center">
     <b>This Github Action automatically creates a GIF from a given web page to display on your project README (or anywhere else).</b>
 </p>
 
@@ -12,7 +14,9 @@
 In your GitHub repo, create a workflow file or extend an existing one. (e.g. `.github/workflows/gif.yml`)
 
 You have to also include `checkout` and commit to the repo.
-You can use the following example `gif.yml`. Make sure to modify the `url` value and add any other [input](#Inputs) you want to use.
+You can use the following example `gif.yml`. Make sure to modify the `url` value and add any other [input](#Inputs) you want to use.  
+
+`.github/workflows/gif.yml`
 ``` yaml
 name: Generate demo GIF
 
@@ -40,56 +44,56 @@ jobs:
 
 #### `url` *mandatory*
 
-Web page URL to be captured.
+Web page URL to be captured.  
 *e.g:* `url: "https://docs.github.com/en/get-started"`
 
 #### `save_path` *optional*
 
-GIF saving path, starts with `/`, **defaults to repo root**.
+GIF saving path, starts with `/`, **defaults to repo root**.  
 *e.g:* `save_path: "/docs/images/"`
 
 #### `gif_name` *optional*
 
-GIF file name, do not include extension or path, **defaults to 'demo'**.
+GIF file name, do not include extension or path, **defaults to 'demo'**.  
 *e.g:* `gif_name: "ss_25_tps_100.gif"`
 
 #### `window_width` *optional*
 
-Browser window width, **defaults to 1920 (px)**.
+Browser window width, **defaults to 1920 (px)**.  
 *e.g:* `window_width: 1366`
 
 #### `window_height` *optional*
 
-Browser window height, **defaults to 1080 (px)**.
+Browser window height, **defaults to 1080 (px)**.  
 *e.g:* `window_height: 768`
 
 #### `stop_y` *optional*
 
-Position where GIF capture should stop, **defaults to bottom of page**.
+Position where GIF capture should stop, **defaults to bottom of page**.  
 *e.g:* `stop_y: 800`
 #### `start_y` *optional*
 
-Position where GIF capture should start, **defaults to 0 (px)**.
+Position where GIF capture should start, **defaults to 0 (px)**.  
 *e.g:* `start_y: 1024`
 #### `final_width` *optional*
 
-description: Final GIF width, **defaults to 640 (px)**.
+description: Final GIF width, **defaults to 640 (px)**.  
 *e.g:* `final_width: 1024`
 #### `final_height` *optional*
 
-Final GIF height, **defaults to 360 (px)**.
+Final GIF height, **defaults to 360 (px)**.  
 *e.g:* `final_height: 576`
 #### `scroll_step` *optional*
 
-Number of pixels by scroll, **defaults to 25 (px)**.
+Number of pixels by scroll, **defaults to 25 (px)**.  
 *e.g:* `scroll_step: 50`
 #### `time_per_frame` *optional*
 
-description: Milliseconds per frame, **defaults to 100 (ms)**.
+description: Milliseconds per frame, **defaults to 100 (ms)**.  
 *e.g:* `time_per_frame: 200`
 #### `quality` *optional*
 
-Image quality, from 0 to 100, **defaults to 95 (%)**.
+Image quality, from 0 to 100, **defaults to 95 (%)**.  
 *e.g:* `quality: 70`
 
 ## Examples
@@ -105,3 +109,10 @@ Increase or decrease `scroll_step` and `time_per_frame` to modify GIF rendering 
 ![](/docs/images/ss_50_tps_100.gif)
 #### `scroll_step: 50` `time_per_frame: 200` *465KB*
 ![](/docs/images/ss_50_tps_200.gif)
+
+
+## Contributing
+
+Feel free to contribute!  
+To report a bug or offer your help, simply open a new [issue](https://github.com/PabloLec/website-to-gif/issues).  
+You can also open an issue if you want a new feature to be implemented.

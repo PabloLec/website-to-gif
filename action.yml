@@ -1,0 +1,59 @@
+name: Auto Website to GIF
+description: "Upgrade your README with a fresh GIF of a web page."
+author: Pablo Lecolinet
+branding:
+  color: green
+  icon: camera
+
+inputs:
+  url:
+    description: Web page URL to be captured
+    required: true
+  save_path:
+    description: GIF saving path, starts with /, defaults to repo root
+    required: false
+    default: '/'
+  gif_name:
+    description: GIF file name, do not include extension or path, defaults to 'demo'
+    required: false
+    default: 'demo'
+  window_width:
+    description: Browser window width, defaults to 1920 (px)
+    required: false
+    default: 1920
+  window_height:
+    description: Browser window height, defaults to 1080 (px)
+    required: false
+    default: 1080
+  start_y:
+    description: Position where GIF capture should start, defaults to 0
+    required: false
+    default: 0
+  stop_y:
+    description: Position where GIF capture should stop, defaults to bottom of page
+    required: false
+    default: 0
+  final_width:
+    description: Final GIF width, defaults to 640 (px)
+    required: false
+    default: 640
+  final_height:
+    description: Final GIF height, defaults to 360 (px)
+    required: false
+    default: 360
+  scroll_step:
+    description: Number of pixels by scroll, defaults to 50 (px)
+    required: false
+    default: 50
+  time_per_frame:
+    description: Milliseconds per frame, defaults to 200 (ms)
+    required: false
+    default: 200
+  quality:
+    description: Image quality, from 0 to 100, defaults to 95 (%)
+    required: false
+    default: 95
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

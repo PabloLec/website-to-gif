@@ -1,4 +1,4 @@
-# website-to-gif [![GitHub release (latest by date)](https://img.shields.io/github/v/release/pablolec/website-to-gif)](https://github.com/PabloLec/website-to-gif/releases/) [![GitHub](https://img.shields.io/github/license/pablolec/website-to-gif)](https://github.com/PabloLec/website-to-gif/blob/main/LICENCE) 
+# website-to-gif [![GitHub release (latest by date)](https://img.shields.io/github/v/release/pablolec/website-to-gif)](https://github.com/PabloLec/website-to-gif/releases/) [![GitHub](https://img.shields.io/github/license/pablolec/website-to-gif)](https://github.com/PabloLec/website-to-gif/blob/main/LICENSE) 
 
 
 <p align="center">
@@ -13,7 +13,7 @@
 
 In your GitHub repo, create a workflow file or extend an existing one. (e.g. `.github/workflows/gif.yml`)
 
-You have to also include `checkout` and commit to the repo.
+You have to also include a step to `checkout` and commit to the repo.  
 You can use the following example `gif.yml`. Make sure to modify the `url` value and add any other [input](#Inputs) you want to use.  
 
 `.github/workflows/gif.yml`
@@ -28,7 +28,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Website to GIF
+<<<<<<< HEAD
         uses: PabloLec/website-to-gif@1.0.3
+=======
+        uses: PabloLec/website-to-gif@1.0.2
+>>>>>>> 1471317d7c689fe88a14b48cef140b22f9278e44
         with:
           url: "https://docs.github.com/en/get-started"
       - name: Commit GIF to GH repo
@@ -40,6 +44,8 @@ jobs:
           git push
 ```
 
+See [official GitHub doc](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions) to further customize your workflow.
+
 ## Inputs
 
 #### `url` *mandatory*
@@ -50,6 +56,7 @@ Web page URL to be captured.
 #### `save_path` *optional*
 
 GIF saving path, starts with `/`, **defaults to repo root**.  
+Make sure the path you provide already exists as this action will not create any directory.  
 *e.g:* `save_path: "/docs/images/"`
 
 #### `gif_name` *optional*
@@ -110,5 +117,4 @@ Increase or decrease `scroll_step` and `time_per_frame` to modify GIF rendering 
 ## Contributing
 
 Feel free to contribute!  
-To report a bug or offer your help, simply open a new [issue](https://github.com/PabloLec/website-to-gif/issues).  
-You can also open an issue if you want a new feature to be implemented.
+To suggest a new feature, report a bug or offer your help, simply open a new [issue](https://github.com/PabloLec/website-to-gif/issues).  

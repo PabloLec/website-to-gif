@@ -49,10 +49,6 @@ inputs:
     description: Milliseconds per frame, defaults to 100 (ms)
     required: false
     default: 100
-  quality:
-    description: Image quality, from 0 to 100, defaults to 95 (%)
-    required: false
-    default: 95
 
 runs:
   using: "docker"

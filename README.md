@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Website to GIF
-        uses: PabloLec/website-to-gif@1.0.0
+        uses: PabloLec/website-to-gif@1.0.3
         with:
           url: "https://docs.github.com/en/get-started"
       - name: Commit GIF to GH repo
@@ -91,10 +91,6 @@ Number of pixels by scroll, **defaults to 25 (px)**.
 
 description: Milliseconds per frame, **defaults to 100 (ms)**.  
 *e.g:* `time_per_frame: 200`
-#### `quality` *optional*
-
-Image quality, from 0 to 100, **defaults to 95 (%)**.  
-*e.g:* `quality: 70`
 
 ## Examples
 

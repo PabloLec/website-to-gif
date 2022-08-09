@@ -38,7 +38,7 @@ def start_driver():
     sleep(5)
 
 
-def close_driver():
+def stop_driver():
     """Stop Selenium driver."""
     _DRIVER.quit()
 
@@ -110,7 +110,7 @@ def process_frame(file: str):
     image = Image.open(file)
     image = image.resize(
         size=(int(_FINAL_W), int(_FINAL_H)),
-        resample=Image.LANCZOS,
+        resample=Image.Resampling.LANCZOS,
         reducing_gap=3,
     )
 
@@ -139,6 +139,6 @@ def create_gif(screenshots: list):
 if __name__ == "__main__":
     start_driver()
     screenshots = scroll_page()
-    close_driver()
+    stop_driver()
 
     create_gif(screenshots=screenshots)

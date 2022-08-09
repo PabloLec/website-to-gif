@@ -7,9 +7,12 @@ GIF_NAME=${INPUT_GIF_NAME}
 echo "_________ START GIF CREATION _________"
 
 export HOME=/root
+cat /app/${GIF_NAME}.gif
 
 export PATH=$PATH:/app
 python3 /app/make_gif.py || cat /app/geckodriver.log
+
+cp /app/${GIF_NAME}.gif /dev/null # Verify presence of output file
 
 export HOME=/github/home
 

@@ -1,2 +1,2 @@
-selenium>=4.3.0
+selenium==4.3.0
 Pillow==8.3.1

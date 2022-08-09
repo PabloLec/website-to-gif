@@ -8,6 +8,7 @@ echo "_________ START GIF CREATION _________"
 
 export HOME=/root
 
+export PATH=$PATH:/app
 python3 /app/make_gif.py || cat /app/geckodriver.log
 
 export HOME=/github/home

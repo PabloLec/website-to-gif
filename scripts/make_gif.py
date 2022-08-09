@@ -29,6 +29,7 @@ def start_driver():
 
     _DRIVER = webdriver.Firefox(
         options=options,
+        executable_path = '/app/geckodriver',
         service_log_path="/app/geckodriver.log",
     )
     _DRIVER.get(_URL)

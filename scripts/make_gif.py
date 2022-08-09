@@ -50,7 +50,7 @@ def take_screenshot(num: int):
     Returns:
         str: Screenshot save path.
     """
-    path = f"/app/screenshot{str(num)}.png"
+    path = f"/app/screenshot{num}.png"
     _DRIVER.save_screenshot(path)
 
     return path
@@ -82,18 +82,16 @@ def scroll_page():
         list: List of taken screenshots local files.
     """
     validate_stop_y()
-
     _DRIVER.execute_script(f"window.scrollTo(0, {_START_Y})")
     screenshot_list = [take_screenshot(num=0)]
     current_y = int(_START_Y)
 
     while current_y < _STOP_Y:
         current_y += int(_SCROLL_STEP)
-        _DRIVER.execute_script(f"window.scrollTo(0, {str(current_y)})")
+        _DRIVER.execute_script(f"window.scrollTo(0, {current_y})")
         screenshot = take_screenshot(num=len(screenshot_list))
         screenshot_list.append(screenshot)
-
-    print(f" - {str(len(screenshot_list))} screenshots taken")
+    print(f" - {len(screenshot_list)} screenshots taken")
 
     return screenshot_list
 

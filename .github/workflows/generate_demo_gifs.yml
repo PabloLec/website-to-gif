@@ -1,0 +1,48 @@
+name: Generate demo GIFs
+
+on: push
+
+jobs:
+  generate-gif:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: ss_25_tps_100
+        uses: PabloLec/website-to-gif@1.0.4
+        with:
+          url: "https://docs.github.com/en/get-started"
+          save_path: '/docs/images'
+          gif_name: ss_25_tps_100
+          scroll_step: 25
+          time_per_frame: 100
+      - name: ss_50_tps_50
+        uses: PabloLec/website-to-gif@1.0.4
+        with:
+          url: "https://docs.github.com/en/get-started"
+          save_path: '/docs/images'
+          gif_name: ss_50_tps_50
+          scroll_step: 50
+          time_per_frame: 50
+      - name: ss_50_tps_100
+        uses: PabloLec/website-to-gif@1.0.4
+        with:
+          url: "https://docs.github.com/en/get-started"
+          save_path: '/docs/images'
+          gif_name: ss_50_tps_100
+          scroll_step: 50
+          time_per_frame: 100
+      - name: ss_50_tps_200
+        uses: PabloLec/website-to-gif@1.0.4
+        with:
+          url: "https://docs.github.com/en/get-started"
+          save_path: '/docs/images'
+          gif_name: ss_50_tps_200
+          scroll_step: 50
+          time_per_frame: 200
+      - name: Commit GIF to GH repo
+        run: |
+          git config --global user.name "PabloLec/website-to-gif"
+          git config --global user.email "action@github.com"
+          git add .
+          git commit -m 'Update GIF'
+          git push

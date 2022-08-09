@@ -1,8 +1,8 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install python3 python3-pip firefox-geckodriver
-RUN DEBIAN_FRONTEND="noninteractive" pip install --upgrade --no-cache-dir --prefer-binary -Iv selenium Pillow==8.3.1
+RUN DEBIAN_FRONTEND="noninteractive" pip install --upgrade --no-cache-dir --prefer-binary -Iv -r requirements.txt
 
 WORKDIR /app
 

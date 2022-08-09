@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: ss_25_tps_100
-        uses: PabloLec/website-to-gif@1.0.4
+        uses: PabloLec/website-to-gif@main
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
@@ -16,7 +16,7 @@ jobs:
           scroll_step: 25
           time_per_frame: 100
       - name: ss_50_tps_50
-        uses: PabloLec/website-to-gif@1.0.4
+        uses: PabloLec/website-to-gif@main
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
@@ -24,7 +24,7 @@ jobs:
           scroll_step: 50
           time_per_frame: 50
       - name: ss_50_tps_100
-        uses: PabloLec/website-to-gif@1.0.4
+        uses: PabloLec/website-to-gif@main
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
@@ -32,7 +32,7 @@ jobs:
           scroll_step: 50
           time_per_frame: 100
       - name: ss_50_tps_200
-        uses: PabloLec/website-to-gif@1.0.4
+        uses: PabloLec/website-to-gif@main
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'

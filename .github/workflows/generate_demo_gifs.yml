@@ -2,6 +2,8 @@ name: Generate demo GIFs
 
 on:
   push:
+    branches:
+      - 'main'
   workflow_dispatch:
   schedule:
       - cron: '0 12 1-7 * 6'

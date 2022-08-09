@@ -1,9 +1,10 @@
-name: Generate demo GIFs
+name: Update demo GIFs
 
 on:
+  push:
+    branches:
+      - 'main'
   workflow_dispatch:
-  schedule:
-      - cron: '0 12 1-7 * 6'
 
 jobs:
   generate-gif:
@@ -42,3 +43,10 @@ jobs:
           gif_name: ss_50_tps_200
           scroll_step: 50
           time_per_frame: 200
+      - name: Commit GIF to GH repo
+        run: |
+          git config --global user.name "PabloLec/website-to-gif"
+          git config --global user.email "action@github.com"
+          git add .
+          git commit -m 'Update GIF'
+          git push

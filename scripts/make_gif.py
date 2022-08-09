@@ -3,6 +3,7 @@ from time import sleep
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
 
 _GIF_NAME = os.getenv("INPUT_GIF_NAME")
 _URL = os.getenv("INPUT_URL")
@@ -29,8 +30,9 @@ def start_driver():
 
     _DRIVER = webdriver.Firefox(
         options=options,
-        executable_path = '/app/geckodriver',
-        service_log_path="/app/geckodriver.log",
+        service=Service(
+            executable_path="/app/geckodriver", log_path="/app/geckodriver.log"
+        ),
     )
     _DRIVER.get(_URL)
     sleep(5)
@@ -38,7 +40,6 @@ def start_driver():
 
 def close_driver():
     """Stop Selenium driver."""
-    _DRIVER.close()
     _DRIVER.quit()
 
 
@@ -135,7 +136,9 @@ def create_gif(screenshots: list):
     )
 
 
-start_driver()
-screenshots = scroll_page()
-close_driver()
-create_gif(screenshots=screenshots)
+if __name__ == "__main__":
+    start_driver()
+    screenshots = scroll_page()
+    close_driver()
+
+    create_gif(screenshots=screenshots)

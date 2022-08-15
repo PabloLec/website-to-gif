@@ -53,7 +53,8 @@ def take_screenshot(num: int):
         str: Screenshot save path.
     """
     path = f"/app/screenshot{num}.png"
-    return _DRIVER.get_screenshot_as_png()
+    _DRIVER.get_screenshot_as_file(path)
+    return path
 
 
 def validate_stop_y():

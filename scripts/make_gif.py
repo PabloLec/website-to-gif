@@ -16,7 +16,7 @@ _FINAL_H = os.getenv("INPUT_FINAL_HEIGHT")
 _SCROLL_STEP = os.getenv("INPUT_SCROLL_STEP")
 _TIME_PER_FRAME = os.getenv("INPUT_TIME_PER_FRAME")
 
-_DRIVER = None
+_DRIVER: webdriver.Firefox = None
 
 
 def start_driver():
@@ -53,9 +53,7 @@ def take_screenshot(num: int):
         str: Screenshot save path.
     """
     path = f"/app/screenshot{num}.png"
-    _DRIVER.save_screenshot(path)
-
-    return path
+    return _DRIVER.get_screenshot_as_png()
 
 
 def validate_stop_y():
@@ -99,10 +97,10 @@ def scroll_page():
 
 
 def process_frame(file: str):
-    """Open screenshot file as a Pillow Image object and resize it.
+    """Open screenshot as a Pillow Image object and resize it.
 
     Args:
-        file (str): Local screenshot path.
+        file (str): Screenshot frame.
 
     Returns:
         Image: Pillow Image object.
@@ -110,8 +108,6 @@ def process_frame(file: str):
     image = Image.open(file)
     image = image.resize(
         size=(int(_FINAL_W), int(_FINAL_H)),
-        resample=Image.Resampling.LANCZOS,
-        reducing_gap=3,
     )
 
     return image

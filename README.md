@@ -5,7 +5,7 @@
     <img src="docs/images/ss_25_tps_100.gif">
 </p>
 <p align="center">
-    <b>This Github Action automatically creates a GIF from a given web page to display on your project README (or anywhere else).</b>
+    <b>This Github Action automatically creates a file from a given web page to display on your project README (or anywhere else).</b>
 </p>
 
 ## Usage
@@ -18,7 +18,7 @@ You can use the following example `gif.yml`. Make sure to modify the `url` value
 
 `.github/workflows/gif.yml`
 ``` yaml
-name: Generate demo GIF
+name: Generate demo file
 
 on: push
 
@@ -27,16 +27,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Website to GIF
+      - name: Website to file
         uses: PabloLec/website-to-gif@1.1.0
         with:
           url: "https://docs.github.com/en/get-started"
-      - name: Commit GIF to GH repo
+      - name: Commit file to GH repo
         run: |
           git config --global user.name "PabloLec/website-to-gif"
           git config --global user.email "action@github.com"
           git add .
-          git commit -m 'Update GIF'
+          git commit -m 'Update file'
           git push
 ```
 
@@ -51,14 +51,14 @@ Web page URL to be captured.
 
 #### `save_path` *optional*
 
-GIF saving path, starts with `/`, **defaults to repo root**.
+file saving path, starts with `/`, **defaults to repo root**.
 Make sure the path you provide already exists as this action will not create any directory.
 *e.g:* `save_path: "/docs/images/"`
 
-#### `gif_name` *optional*
+#### `file_name` *optional*
 
-GIF file name, do not include extension or path, **defaults to 'demo'**.
-*e.g:* `gif_name: "ss_25_tps_100.gif"`
+file file name, do not include extension or path, **defaults to 'demo'**.
+*e.g:* `file_name: "ss_25_tps_100.gif"`
 
 #### `window_width` *optional*
 
@@ -72,19 +72,19 @@ Browser window height, **defaults to 1080 (px)**.
 
 #### `stop_y` *optional*
 
-Position where GIF capture should stop, **defaults to bottom of page**.
+Position where file capture should stop, **defaults to bottom of page**.
 *e.g:* `stop_y: 800`
 #### `start_y` *optional*
 
-Position where GIF capture should start, **defaults to 0 (px)**.
+Position where file capture should start, **defaults to 0 (px)**.
 *e.g:* `start_y: 1024`
 #### `final_width` *optional*
 
-description: Final GIF width, **defaults to 640 (px)**.
+description: Final file width, **defaults to 640 (px)**.
 *e.g:* `final_width: 1024`
 #### `final_height` *optional*
 
-Final GIF height, **defaults to 360 (px)**.
+Final file height, **defaults to 360 (px)**.
 *e.g:* `final_height: 576`
 #### `scroll_step` *optional*
 
@@ -97,7 +97,7 @@ description: Milliseconds per frame, **defaults to 100 (ms)**.
 
 ## Examples
 
-Increase or decrease `scroll_step` and `time_per_frame` to modify GIF rendering and filesize.
+Increase or decrease `scroll_step` and `time_per_frame` to modify file rendering and filesize.
 
 #### `scroll_step: 25` `time_per_frame: 100`
 ![](/docs/images/ss_25_tps_100.gif)

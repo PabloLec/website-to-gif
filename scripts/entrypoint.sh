@@ -2,21 +2,23 @@
 set -o errexit -o pipefail -o nounset
 
 SAVE_PATH=${INPUT_SAVE_PATH}
-GIF_NAME=${INPUT_GIF_NAME}
+FILE_NAME=${INPUT_FILE_NAME}
+FORMAT=${INPUT_FILE_FORMAT}
+LC_FORMAT="${FORMAT,,}"
 
-echo "_________ START GIF CAPTURE _________"
+echo "_________ START CAPTURE _________"
 
 export HOME=/root
 
 export PATH=$PATH:/app
 python3 /app/make_gif.py || cat /app/geckodriver.log
 
-cp /app/${GIF_NAME}.gif /dev/null # Verify presence of output file
+cp /app/${FILE_NAME}.${LC_FORMAT} /dev/null # Verify presence of output file
 
 export HOME=/github/home
 
-echo "_________ GIF CREATED _________"
+echo "_________ FILE CREATED _________"
 
-echo " - Saving GIF to ${SAVE_PATH} as ${GIF_NAME}.gif"
+echo " - Saving file to ${SAVE_PATH} as ${FILE_NAME}.${LC_FORMAT}"
 
-cp "/app/${GIF_NAME}.gif" "/github/workspace${SAVE_PATH}"
+cp "/app/${FILE_NAME}.${LC_FORMAT}" "/github/workspace${SAVE_PATH}"

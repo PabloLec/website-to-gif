@@ -1,4 +1,4 @@
-name: Update demo GIFs
+name: Update demo files
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_25_tps_100
+          file_name: ss_25_tps_100
           scroll_step: 25
           time_per_frame: 100
       - name: ss_50_tps_50
@@ -24,7 +24,7 @@ jobs:
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_50_tps_50
+          file_name: ss_50_tps_50
           scroll_step: 50
           time_per_frame: 50
       - name: ss_50_tps_100
@@ -32,7 +32,7 @@ jobs:
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_50_tps_100
+          file_name: ss_50_tps_100
           scroll_step: 50
           time_per_frame: 100
       - name: ss_50_tps_200
@@ -40,13 +40,13 @@ jobs:
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_50_tps_200
+          file_name: ss_50_tps_200
           scroll_step: 50
           time_per_frame: 200
-      - name: Commit GIF to GH repo
+      - name: Commit file to GH repo
         run: |
           git config --global user.name "PabloLec/website-to-gif"
           git config --global user.email "action@github.com"
           git add .
-          git commit -m 'Update GIF'
+          git commit -m 'Update file'
           git push

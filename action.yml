@@ -1,5 +1,5 @@
-name: Auto Website to GIF
-description: "Upgrade your README with a fresh GIF of a web page."
+name: Auto Website to file
+description: "Upgrade your README with a fresh file of a web page."
 author: Pablo Lecolinet
 branding:
   color: green
@@ -10,11 +10,15 @@ inputs:
     description: Web page URL to be captured
     required: true
   save_path:
-    description: GIF saving path, starts with /, defaults to repo root
+    description: File saving path, starts with /, defaults to repo root
     required: false
     default: '/'
-  gif_name:
-    description: GIF file name, do not include extension or path, defaults to 'demo'
+  file_format:
+    description: Save as GIF or WebP
+    required: false
+    default: 'GIF'
+  file_name:
+    description: File name, do not include extension or path, defaults to 'demo'
     required: false
     default: 'demo'
   window_width:
@@ -26,19 +30,19 @@ inputs:
     required: false
     default: 1080
   start_y:
-    description: Position where GIF capture should start, defaults to 0 (px)
+    description: Position where capture should start, defaults to 0 (px)
     required: false
     default: 0
   stop_y:
-    description: Position where GIF capture should stop, defaults to bottom of page
+    description: Position where capture should stop, defaults to bottom of page
     required: false
     default: 0
   final_width:
-    description: Final GIF width, defaults to 640 (px)
+    description: Final width, defaults to 640 (px)
     required: false
     default: 640
   final_height:
-    description: Final GIF height, defaults to 360 (px)
+    description: Final height, defaults to 360 (px)
     required: false
     default: 360
   scroll_step:

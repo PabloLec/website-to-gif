@@ -7,7 +7,8 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 
-_GIF_NAME = os.getenv("INPUT_GIF_NAME")
+_FORMAT = os.getenv("INPUT_FILE_FORMAT").upper().strip()
+_FILE_NAME = os.getenv("INPUT_FILE_NAME")
 _URL = os.getenv("INPUT_URL")
 _WINDOW_W = os.getenv("INPUT_WINDOW_WIDTH")
 _WINDOW_H = os.getenv("INPUT_WINDOW_HEIGHT")
@@ -118,17 +119,17 @@ def process_frame(file: str):
 
 
 def create_gif(screenshots: list):
-    """Use Pillow to create GIF.
+    """Use Pillow to create file.
 
     Args:
         screenshots (list): List of taken screenshots local files.
     """
-    print(f" - Creating GIF: FINAL_WIDTH={_FINAL_W} | FINAL_HEIGHT={_FINAL_H}")
-    fp_out = f"/app/{_GIF_NAME}.gif"
+    print(f" - Creating file: FINAL_WIDTH={_FINAL_W} | FINAL_HEIGHT={_FINAL_H}")
+    fp_out = f"/app/{_FILE_NAME}.gif"
     img, *imgs = map(process_frame, screenshots)
     img.save(
         fp=fp_out,
-        format="GIF",
+        format="file",
         append_images=imgs,
         save_all=True,
         duration=int(_TIME_PER_FRAME),
@@ -141,4 +142,9 @@ if __name__ == "__main__":
     start_driver()
     screenshots = scroll_page()
     stop_driver()
-    create_gif(screenshots=screenshots)
+    if _FORMAT == "GIF":
+        create_gif(screenshots=screenshots)
+    elif _FORMAT == "WEBP":
+        pass
+    else:
+        raise Exception(f"Unknown file format:{_FORMAT}")

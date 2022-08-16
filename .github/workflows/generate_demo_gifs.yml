@@ -1,4 +1,4 @@
-name: Generate demo GIFs
+name: Generate demo files
 
 on:
   workflow_dispatch:
@@ -15,7 +15,7 @@ jobs:
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_25_tps_100
+          file_name: ss_25_tps_100
           scroll_step: 25
           time_per_frame: 100
       - name: ss_50_tps_50
@@ -23,7 +23,7 @@ jobs:
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_50_tps_50
+          file_name: ss_50_tps_50
           scroll_step: 50
           time_per_frame: 50
       - name: ss_50_tps_100
@@ -31,7 +31,7 @@ jobs:
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_50_tps_100
+          file_name: ss_50_tps_100
           scroll_step: 50
           time_per_frame: 100
       - name: ss_50_tps_200
@@ -39,6 +39,6 @@ jobs:
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_50_tps_200
+          file_name: ss_50_tps_200
           scroll_step: 50
           time_per_frame: 200

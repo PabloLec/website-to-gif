@@ -111,8 +111,7 @@ def process_frame(file: str):
     image = Image.open(BytesIO(b64decode(file)))
     image = image.resize(
         size=(int(_FINAL_W), int(_FINAL_H)),
-        resample=Image.Resampling.LANCZOS,
-        reducing_gap=3,
+        resample=Image.Resampling.LANCZOS
     )
 
     return image
@@ -122,7 +121,7 @@ def create_gif(screenshots: list):
     """Use Pillow to create file.
 
     Args:
-        screenshots (list): List of taken screenshots local files.
+        screenshots (list): List of previously taken screenshots.
     """
     print(f" - Creating file: FINAL_WIDTH={_FINAL_W} | FINAL_HEIGHT={_FINAL_H}")
     fp_out = f"/app/{_FILE_NAME}.gif"
@@ -140,9 +139,9 @@ def create_gif(screenshots: list):
 def create_webp(screenshots: list):
     """Use Pillow to create file.
 
-        Args:
-            screenshots (list): List of taken screenshots local files.
-        """
+    Args:
+        screenshots (list): List of previously taken screenshots.
+    """
     print(f" - Creating file: FINAL_WIDTH={_FINAL_W} | FINAL_HEIGHT={_FINAL_H}")
     fp_out = f"/app/{_FILE_NAME}.webp"
     img, *imgs = map(process_frame, screenshots)
@@ -153,9 +152,10 @@ def create_webp(screenshots: list):
         save_all=True,
         duration=int(_TIME_PER_FRAME),
         loop=0,
-        optimize=False,
+        lossless=True,
         minimize_size=True,
-        method=6
+        method=6,
+        quality=100
     )
 
 if __name__ == "__main__":

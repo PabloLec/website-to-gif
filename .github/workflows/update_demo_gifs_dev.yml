@@ -19,14 +19,18 @@ jobs:
           gif_name: ss_25_tps_100
           scroll_step: 25
           time_per_frame: 100
-      - name: ss_15_tps_50
+      - name: ss_15_tps_80
         uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
-          gif_name: ss_15_tps_50
+          gif_name: ss_15_tps_80
           scroll_step: 15
           time_per_frame: 80
+          window_width: 1280
+          window_height: 720
+          final_width: 853
+          final_height: 480
       - name: ss_50_tps_50
         uses: PabloLec/website-to-gif@dev
         with:

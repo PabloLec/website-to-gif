@@ -110,6 +110,8 @@ def process_frame(file: str):
     image = Image.open(BytesIO(b64decode(file)))
     image = image.resize(
         size=(int(_FINAL_W), int(_FINAL_H)),
+        resample=Image.Resampling.LANCZOS,
+        reducing_gap=3,
     )
 
     return image
@@ -131,7 +133,7 @@ def create_gif(screenshots: list):
         save_all=True,
         duration=int(_TIME_PER_FRAME),
         loop=0,
-        optimize=False,
+        optimize=False
     )
 
 

@@ -1,6 +1,8 @@
 import os
 from time import sleep
 from PIL import Image
+from io import BytesIO
+from base64 import b64decode
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
@@ -52,9 +54,8 @@ def take_screenshot(num: int):
     Returns:
         str: Screenshot save path.
     """
-    path = f"/app/screenshot{num}.png"
-    _DRIVER.get_screenshot_as_file(path)
-    return path
+    print(f"Taking screenshot n°{num}")
+    return _DRIVER.get_screenshot_as_base64()
 
 
 def validate_stop_y():
@@ -106,7 +107,7 @@ def process_frame(file: str):
     Returns:
         Image: Pillow Image object.
     """
-    image = Image.open(file)
+    image = Image.open(BytesIO(b64decode(file)))
     image = image.resize(
         size=(int(_FINAL_W), int(_FINAL_H)),
     )

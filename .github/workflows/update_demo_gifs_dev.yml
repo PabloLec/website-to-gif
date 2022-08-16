@@ -26,7 +26,7 @@ jobs:
           save_path: '/docs/images'
           gif_name: ss_15_tps_50
           scroll_step: 15
-          time_per_frame: 50
+          time_per_frame: 80
       - name: ss_50_tps_50
         uses: PabloLec/website-to-gif@dev
         with:

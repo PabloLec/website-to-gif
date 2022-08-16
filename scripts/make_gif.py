@@ -46,13 +46,13 @@ def stop_driver():
 
 
 def take_screenshot(num: int):
-    """Save current page display as a .png
+    """Return current page display as base64
 
     Args:
         num (int): Screenshot number.
 
     Returns:
-        str: Screenshot save path.
+        str: base64 screenshot
     """
     print(f"Taking screenshot n°{num}")
     return _DRIVER.get_screenshot_as_base64()
@@ -121,6 +121,7 @@ def create_gif(screenshots: list):
     Args:
         screenshots (list): List of taken screenshots local files.
     """
+    print(f" - Creating GIF: FINAL_WIDTH={_FINAL_W} | FINAL_HEIGHT={_FINAL_H}")
     fp_out = f"/app/{_GIF_NAME}.gif"
     img, *imgs = map(process_frame, screenshots)
     img.save(
@@ -138,5 +139,4 @@ if __name__ == "__main__":
     start_driver()
     screenshots = scroll_page()
     stop_driver()
-
     create_gif(screenshots=screenshots)

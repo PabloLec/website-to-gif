@@ -144,7 +144,7 @@ def create_webp(screenshots: list):
             screenshots (list): List of taken screenshots local files.
         """
     print(f" - Creating file: FINAL_WIDTH={_FINAL_W} | FINAL_HEIGHT={_FINAL_H}")
-    fp_out = f"/app/{_FILE_NAME}.gif"
+    fp_out = f"/app/{_FILE_NAME}.webp"
     img, *imgs = map(process_frame, screenshots)
     img.save(
         fp=fp_out,

@@ -137,6 +137,26 @@ def create_gif(screenshots: list):
         optimize=False
     )
 
+def create_webp(screenshots: list):
+    """Use Pillow to create file.
+
+        Args:
+            screenshots (list): List of taken screenshots local files.
+        """
+    print(f" - Creating file: FINAL_WIDTH={_FINAL_W} | FINAL_HEIGHT={_FINAL_H}")
+    fp_out = f"/app/{_FILE_NAME}.gif"
+    img, *imgs = map(process_frame, screenshots)
+    img.save(
+        fp=fp_out,
+        format="webp",
+        append_images=imgs,
+        save_all=True,
+        duration=int(_TIME_PER_FRAME),
+        loop=0,
+        optimize=False,
+        minimize_size=True,
+        method=6
+    )
 
 if __name__ == "__main__":
     start_driver()
@@ -145,6 +165,6 @@ if __name__ == "__main__":
     if _FORMAT == "GIF":
         create_gif(screenshots=screenshots)
     elif _FORMAT == "WEBP":
-        pass
+        create_webp(screenshots=screenshots)
     else:
         raise Exception(f"Unknown file format:{_FORMAT}")

@@ -11,6 +11,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: ss_15_tps_80
+        uses: PabloLec/website-to-gif@dev
+        with:
+          url: "https://docs.github.com/en/get-started"
+          save_path: '/docs/images'
+          file_format: webp
+          file_name: ss_15_tps_80
+          scroll_step: 15
+          time_per_frame: 80
+          window_width: 1280
+          window_height: 720
+      - name: ss_15_tps_80
+        uses: PabloLec/website-to-gif@dev
+        with:
+          url: "https://docs.github.com/en/get-started"
+          save_path: '/docs/images'
+          file_format: gif
+          file_name: ss_15_tps_80
+          scroll_step: 15
+          time_per_frame: 80
+          window_width: 1280
+          window_height: 720
       - name: ss_25_tps_100
         uses: PabloLec/website-to-gif@dev
         with:
@@ -19,18 +41,6 @@ jobs:
           file_name: ss_25_tps_100
           scroll_step: 25
           time_per_frame: 100
-      - name: ss_15_tps_80
-        uses: PabloLec/website-to-gif@dev
-        with:
-          url: "https://docs.github.com/en/get-started"
-          save_path: '/docs/images'
-          file_name: ss_15_tps_80
-          scroll_step: 15
-          time_per_frame: 80
-          window_width: 1280
-          window_height: 720
-          final_width: 853
-          final_height: 480
       - name: ss_50_tps_50
         uses: PabloLec/website-to-gif@dev
         with:

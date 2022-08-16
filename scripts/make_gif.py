@@ -129,7 +129,7 @@ def create_gif(screenshots: list):
     img, *imgs = map(process_frame, screenshots)
     img.save(
         fp=fp_out,
-        format="file",
+        format="gif",
         append_images=imgs,
         save_all=True,
         duration=int(_TIME_PER_FRAME),

@@ -41,14 +41,18 @@ def start_driver():
     sleep(5)
 
 
+def get_inner_size():
+    return (int(_DRIVER.execute_script("return window.innerWidth;")),
+            int(_DRIVER.execute_script("return window.innerHeight;")))
+
+
 def fix_aspect_ratio():
-    print(f" - Window size before fix: {_DRIVER.get_window_size()}")
-    real_width = _DRIVER.get_window_size()['width']
-    real_height = _DRIVER.get_window_size()['height']
-    width_gap = _WINDOW_H - real_width
+    print(f" - Window size before fix: {get_inner_size()}")
+    real_width, real_height = get_inner_size()
+    width_gap = _WINDOW_W - real_width
     height_gap = _WINDOW_H - real_height
     _DRIVER.set_window_size(_WINDOW_W + width_gap, _WINDOW_H + height_gap)
-    print(f" - Window size after fix: {_DRIVER.get_window_size()}")
+    print(f" - Window size after fix: {get_inner_size()}")
 
 
 def stop_driver():

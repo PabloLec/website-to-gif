@@ -10,8 +10,8 @@ from selenium.webdriver.firefox.service import Service
 _FORMAT = os.getenv("INPUT_FILE_FORMAT").upper().strip()
 _FILE_NAME = os.getenv("INPUT_FILE_NAME")
 _URL = os.getenv("INPUT_URL")
-_WINDOW_W = os.getenv("INPUT_WINDOW_WIDTH")
-_WINDOW_H = os.getenv("INPUT_WINDOW_HEIGHT")
+_WINDOW_W = int(os.getenv("INPUT_WINDOW_WIDTH"))
+_WINDOW_H = int(os.getenv("INPUT_WINDOW_HEIGHT"))
 _START_Y = os.getenv("INPUT_START_Y")
 _STOP_Y = os.getenv("INPUT_STOP_Y")
 _FINAL_W = os.getenv("INPUT_FINAL_WIDTH")
@@ -39,6 +39,16 @@ def start_driver():
     )
     _DRIVER.get(_URL)
     sleep(5)
+
+
+def fix_aspect_ratio():
+    print(f" - Window size before fix: {_DRIVER.get_window_size()}")
+    real_width = _DRIVER.get_window_size()['width']
+    real_height = _DRIVER.get_window_size()['height']
+    width_gap = _WINDOW_H - real_width
+    height_gap = _WINDOW_H - real_height
+    _DRIVER.set_window_size(_WINDOW_W + width_gap, _WINDOW_H + height_gap)
+    print(f" - Window size after fix: {_DRIVER.get_window_size()}")
 
 
 def stop_driver():
@@ -136,6 +146,7 @@ def create_gif(screenshots: list):
         optimize=False
     )
 
+
 def create_webp(screenshots: list):
     """Use Pillow to create file.
 
@@ -158,8 +169,10 @@ def create_webp(screenshots: list):
         quality=100
     )
 
+
 if __name__ == "__main__":
     start_driver()
+    fix_aspect_ratio()
     screenshots = scroll_page()
     stop_driver()
     if _FORMAT == "GIF":

@@ -18,6 +18,7 @@ _FINAL_W = os.getenv("INPUT_FINAL_WIDTH")
 _FINAL_H = os.getenv("INPUT_FINAL_HEIGHT")
 _SCROLL_STEP = os.getenv("INPUT_SCROLL_STEP")
 _TIME_PER_FRAME = os.getenv("INPUT_TIME_PER_FRAME")
+_RESIZING_FILTER = os.getenv("INPUT_RESIZING_FILTER").upper().strip()
 
 _DRIVER: webdriver.Firefox = None
 
@@ -42,8 +43,10 @@ def start_driver():
 
 
 def get_inner_size():
-    return (int(_DRIVER.execute_script("return window.innerWidth;")),
-            int(_DRIVER.execute_script("return window.innerHeight;")))
+    return (
+        int(_DRIVER.execute_script("return window.innerWidth;")),
+        int(_DRIVER.execute_script("return window.innerHeight;")),
+    )
 
 
 def fix_aspect_ratio():
@@ -124,8 +127,7 @@ def process_frame(file: str):
     """
     image = Image.open(BytesIO(b64decode(file)))
     image = image.resize(
-        size=(int(_FINAL_W), int(_FINAL_H)),
-        resample=Image.Resampling.LANCZOS
+        size=(int(_FINAL_W), int(_FINAL_H)), resample=Image.Resampling[_RESIZING_FILTER]
     )
 
     return image
@@ -147,7 +149,7 @@ def create_gif(screenshots: list):
         save_all=True,
         duration=int(_TIME_PER_FRAME),
         loop=0,
-        optimize=False
+        optimize=False,
     )
 
 
@@ -170,7 +172,7 @@ def create_webp(screenshots: list):
         lossless=True,
         minimize_size=True,
         method=6,
-        quality=100
+        quality=100,
     )
 
 

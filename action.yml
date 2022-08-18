@@ -14,7 +14,7 @@ inputs:
     required: false
     default: '/'
   file_format:
-    description: Save as GIF or WebP
+    description: Save as GIF or WebP, defaults to GIF
     required: false
     default: 'GIF'
   file_name:
@@ -53,6 +53,10 @@ inputs:
     description: Milliseconds per frame, defaults to 100 (ms)
     required: false
     default: 100
+  resizing_filter:
+    description: Filter used to resize frames, see https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=resize#PIL.Image.Image.resize, defaults to LANCZOS
+    required: false
+    default: 'LANCZOS'
 
 runs:
   using: "docker"

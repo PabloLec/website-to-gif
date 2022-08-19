@@ -47,7 +47,7 @@ def stop_driver():
     _DRIVER.quit()
 
 
-def get_inner_size() -> tuple(int, int):
+def get_inner_size() -> tuple:
     """Get real inner window size"""
     return (
         int(_DRIVER.execute_script("return window.innerWidth;")),

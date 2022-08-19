@@ -108,7 +108,7 @@ Milliseconds per frame
 #### `resizing_filter` optional
 
 Filter used to resize frames, see https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=resize#PIL.Image.Image.resize  
-| **defaults to 'LANCZOS**. *e.g:* `resizing_filter: "LANCZOS"`
+| **defaults to LANCZOS**. *e.g:* `resizing_filter: "LANCZOS"`
 
 ## Examples
 

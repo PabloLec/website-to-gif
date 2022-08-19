@@ -42,7 +42,13 @@ def start_driver():
     sleep(5)
 
 
-def get_inner_size():
+def stop_driver():
+    """Stop Selenium driver."""
+    _DRIVER.quit()
+
+
+def get_inner_size() -> tuple(int, int):
+    """Get real inner window size"""
     return (
         int(_DRIVER.execute_script("return window.innerWidth;")),
         int(_DRIVER.execute_script("return window.innerHeight;")),
@@ -50,30 +56,13 @@ def get_inner_size():
 
 
 def fix_aspect_ratio():
+    """Fix window size to take into account browser toolbar and scrollbar."""
     print(f" - Window size before fix: {get_inner_size()}")
     real_width, real_height = get_inner_size()
     width_gap = _WINDOW_W - real_width
     height_gap = _WINDOW_H - real_height
     _DRIVER.set_window_size(_WINDOW_W + width_gap, _WINDOW_H + height_gap)
     print(f" - Window size after fix: {get_inner_size()}")
-
-
-def stop_driver():
-    """Stop Selenium driver."""
-    _DRIVER.quit()
-
-
-def take_screenshot(num: int):
-    """Return current page display as base64
-
-    Args:
-        num (int): Screenshot number.
-
-    Returns:
-        str: base64 screenshot
-    """
-    print(f"Taking screenshot n°{num}")
-    return _DRIVER.get_screenshot_as_base64()
 
 
 def validate_stop_y():
@@ -93,6 +82,19 @@ def validate_stop_y():
     elif _STOP_Y > int(page_height):
         _STOP_Y = page_height
         print(f" - STOP Y greater than page height, _STOP_Y set to {_STOP_Y}")
+
+
+def take_screenshot(num: int):
+    """Return current page display as base64
+
+    Args:
+        num (int): Screenshot number.
+
+    Returns:
+        str: base64 screenshot
+    """
+    print(f"Taking screenshot n°{num}")
+    return _DRIVER.get_screenshot_as_base64()
 
 
 def scroll_page():

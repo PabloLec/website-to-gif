@@ -2,10 +2,10 @@
 
 
 <p align="center">
-    <img src="docs/images/ss_25_tps_100.gif">
+    <img src="docs/images/ss_15_tps_80.gif">
 </p>
 <p align="center">
-    <b>This Github Action automatically creates a GIF from a given web page to display on your project README (or anywhere else).</b>
+    <b>This Github Action automatically creates a animated GIF or WebP from a given web page to display on your project README (or anywhere else).</b>
 </p>
 
 ## Usage
@@ -18,7 +18,7 @@ You can use the following example `gif.yml`. Make sure to modify the `url` value
 
 `.github/workflows/gif.yml`
 ``` yaml
-name: Generate demo GIF
+name: Generate demo file
 
 on: push
 
@@ -27,16 +27,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Website to GIF
-        uses: PabloLec/website-to-gif@1.1.0
+      - name: Website to file
+        uses: PabloLec/website-to-gif@2.0.0
         with:
           url: "https://docs.github.com/en/get-started"
-      - name: Commit GIF to GH repo
+      - name: Commit file to GH repo
         run: |
           git config --global user.name "PabloLec/website-to-gif"
           git config --global user.email "action@github.com"
           git add .
-          git commit -m 'Update GIF'
+          git commit -m 'Update file'
           git push
 ```
 
@@ -47,58 +47,75 @@ See [official GitHub doc](https://docs.github.com/en/actions/reference/workflow-
 #### `url` *mandatory*
 
 Web page URL to be captured.
-*e.g:* `url: "https://docs.github.com/en/get-started"`
+| *e.g:* `url: "https://docs.github.com/en/get-started"`
 
-#### `save_path` *optional*
+#### `save_path` optional
 
-GIF saving path, starts with `/`, **defaults to repo root**.
+File saving path, starts with `/`,
 Make sure the path you provide already exists as this action will not create any directory.
-*e.g:* `save_path: "/docs/images/"`
+| **defaults to repo root**.*e.g:* `save_path: "/docs/images/"`
 
-#### `gif_name` *optional*
+#### `file_format` optional
 
-GIF file name, do not include extension or path, **defaults to 'demo'**.
-*e.g:* `gif_name: "ss_25_tps_100.gif"`
+Output file format, currently support GIF and WebP
+| **defaults to 'GIF'**. *e.g:* `file_format: "WebP"`
 
-#### `window_width` *optional*
+#### `file_name` optional
 
-Browser window width, **defaults to 1920 (px)**.
-*e.g:* `window_width: 1366`
+File name, **do not include extension or path**
+| **defaults to 'demo'**. *e.g:* `file_name: "ss_25_tps_100.gif"`
 
-#### `window_height` *optional*
+#### `window_width` optional
 
-Browser window height, **defaults to 1080 (px)**.
-*e.g:* `window_height: 768`
+Browser window width
+| **defaults to 1920 (px)**. *e.g:* `window_width: 1366`
 
-#### `stop_y` *optional*
+#### `window_height` optional
 
-Position where GIF capture should stop, **defaults to bottom of page**.
-*e.g:* `stop_y: 800`
-#### `start_y` *optional*
+Browser window height
+| **defaults to 1080 (px)**. *e.g:* `window_height: 768`
 
-Position where GIF capture should start, **defaults to 0 (px)**.
-*e.g:* `start_y: 1024`
-#### `final_width` *optional*
+#### `stop_y` optional
 
-description: Final GIF width, **defaults to 640 (px)**.
-*e.g:* `final_width: 1024`
-#### `final_height` *optional*
+Position where file capture should stop
+| **defaults to bottom of page**. *e.g:* `stop_y: 800`
 
-Final GIF height, **defaults to 360 (px)**.
-*e.g:* `final_height: 576`
-#### `scroll_step` *optional*
+#### `start_y` optional
 
-Number of pixels by scroll, **defaults to 25 (px)**.
-*e.g:* `scroll_step: 50`
-#### `time_per_frame` *optional*
+Position where file capture should start
+| **defaults to 0 (px)**. *e.g:* `start_y: 1024`
 
-description: Milliseconds per frame, **defaults to 100 (ms)**.
-*e.g:* `time_per_frame: 200`
+#### `final_width` optional
+
+Final file width
+| **defaults to 640 (px)**. *e.g:* `final_width: 1024`
+
+#### `final_height` optional
+
+Final file height
+| **defaults to 360 (px)**. *e.g:* `final_height: 576`
+
+#### `scroll_step` optional
+
+Number of pixels by scroll
+| **defaults to 25 (px)**. *e.g:* `scroll_step: 50`
+
+#### `time_per_frame` optional
+
+Milliseconds per frame
+| **defaults to 100 (ms)**. *e.g:* `time_per_frame: 200`
+
+#### `resizing_filter` optional
+
+Filter used to resize frames, see https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=resize#PIL.Image.Image.resize
+| **defaults to 'LANCZOS**. *e.g:* `resizing_filter: "LANCZOS"`
 
 ## Examples
 
-Increase or decrease `scroll_step` and `time_per_frame` to modify GIF rendering and filesize.
+Increase or decrease `scroll_step` and `time_per_frame` to modify file rendering and filesize.
 
+#### `scroll_step: 15` `time_per_frame: 80`
+![](/docs/images/ss_15_tps_80.gif)
 #### `scroll_step: 25` `time_per_frame: 100`
 ![](/docs/images/ss_25_tps_100.gif)
 #### `scroll_step: 50` `time_per_frame: 50`
@@ -108,6 +125,9 @@ Increase or decrease `scroll_step` and `time_per_frame` to modify GIF rendering 
 #### `scroll_step: 50` `time_per_frame: 200`
 ![](/docs/images/ss_50_tps_200.gif)
 
+## WebP
+
+WebP rendering will take **a lot** of time to benefit from lossless quality and file size optimization.
 
 ## Contributing
 

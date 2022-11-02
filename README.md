@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Website to file
-        uses: PabloLec/website-to-gif@2.0.0
+        uses: PabloLec/website-to-gif@2.0.2
         with:
           url: "https://docs.github.com/en/get-started"
       - name: Commit file to GH repo

@@ -26,7 +26,7 @@ jobs:
   generate-gif:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Website to file
         uses: PabloLec/website-to-gif@2.0.2
         with:
@@ -46,68 +46,68 @@ See [official GitHub doc](https://docs.github.com/en/actions/reference/workflow-
 
 #### `url` *mandatory*
 
-Web page URL to be captured.  
+Web page URL to be captured.
 | *e.g:* `url: "https://docs.github.com/en/get-started"`
 
 #### `save_path` optional
 
 File saving path, starts with `/`,
-Make sure the path you provide already exists as this action will not create any directory.  
+Make sure the path you provide already exists as this action will not create any directory.
 | **defaults to repo root**.*e.g:* `save_path: "/docs/images/"`
 
 #### `file_format` optional
 
-Output file format, currently support GIF and WebP  
+Output file format, currently support GIF and WebP
 | **defaults to 'GIF'**. *e.g:* `file_format: "WebP"`
 
 #### `file_name` optional
 
-File name, **do not include extension or path**  
+File name, **do not include extension or path**
 | **defaults to 'demo'**. *e.g:* `file_name: "ss_25_tps_100.gif"`
 
 #### `window_width` optional
 
-Browser window width  
+Browser window width
 | **defaults to 1920 (px)**. *e.g:* `window_width: 1366`
 
 #### `window_height` optional
 
-Browser window height  
+Browser window height
 | **defaults to 1080 (px)**. *e.g:* `window_height: 768`
 
 #### `stop_y` optional
 
-Position where file capture should stop  
+Position where file capture should stop
 | **defaults to bottom of page**. *e.g:* `stop_y: 800`
 
 #### `start_y` optional
 
-Position where file capture should start  
+Position where file capture should start
 | **defaults to 0 (px)**. *e.g:* `start_y: 1024`
 
 #### `final_width` optional
 
-Final file width  
+Final file width
 | **defaults to 640 (px)**. *e.g:* `final_width: 1024`
 
 #### `final_height` optional
 
-Final file height  
+Final file height
 | **defaults to 360 (px)**. *e.g:* `final_height: 576`
 
 #### `scroll_step` optional
 
-Number of pixels by scroll  
+Number of pixels by scroll
 | **defaults to 25 (px)**. *e.g:* `scroll_step: 50`
 
 #### `time_per_frame` optional
 
-Milliseconds per frame  
+Milliseconds per frame
 | **defaults to 100 (ms)**. *e.g:* `time_per_frame: 200`
 
 #### `resizing_filter` optional
 
-Filter used to resize frames, see https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=resize#PIL.Image.Image.resize  
+Filter used to resize frames, see https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=resize#PIL.Image.Image.resize
 | **defaults to LANCZOS**. *e.g:* `resizing_filter: "LANCZOS"`
 
 ## Examples

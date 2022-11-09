@@ -10,7 +10,7 @@ jobs:
   generate-gif:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: ss_15_tps_80
         uses: PabloLec/website-to-gif@main
         with:
@@ -62,13 +62,6 @@ jobs:
           time_per_frame: 200
           window_width: 1280
           window_height: 720
-      - name: Commit file to GH repo
-        run: |
-          git config --global user.name "PabloLec/website-to-gif"
-          git config --global user.email "action@github.com"
-          git add .
-          git commit -m 'Update file'
-          git push
       - name: Commit file to GH repo
         run: |
           git config --global user.name "PabloLec/website-to-gif"

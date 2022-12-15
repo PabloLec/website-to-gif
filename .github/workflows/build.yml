@@ -1,0 +1,24 @@
+name: "Build"
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: generate gif
+        uses: .
+        with:
+          url: "https://docs.github.com/en/get-started/quickstart/be-social"
+          save_path: '/docs/images'
+          file_format: gif
+          file_name: ss_15_tps_80
+          scroll_step: 15
+          time_per_frame: 80
+          window_width: 1280
+          window_height: 720
+

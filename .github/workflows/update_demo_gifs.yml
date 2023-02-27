@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: ss_15_tps_80
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
           save_path: '/docs/images'
@@ -23,7 +23,7 @@ jobs:
           window_width: 1280
           window_height: 720
       - name: ss_25_tps_100
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
           save_path: '/docs/images'
@@ -33,7 +33,7 @@ jobs:
           window_width: 1280
           window_height: 720
       - name: ss_50_tps_50
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
           save_path: '/docs/images'
@@ -43,7 +43,7 @@ jobs:
           window_width: 1280
           window_height: 720
       - name: ss_50_tps_100
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
           save_path: '/docs/images'
@@ -53,7 +53,7 @@ jobs:
           window_width: 1280
           window_height: 720
       - name: ss_50_tps_200
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
           save_path: '/docs/images'

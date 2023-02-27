@@ -22,7 +22,7 @@ jobs:
           window_width: 1280
           window_height: 720
       - name: ss_25_tps_100
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
@@ -30,7 +30,7 @@ jobs:
           scroll_step: 25
           time_per_frame: 100
       - name: ss_50_tps_50
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
@@ -38,7 +38,7 @@ jobs:
           scroll_step: 50
           time_per_frame: 50
       - name: ss_50_tps_100
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'
@@ -46,7 +46,7 @@ jobs:
           scroll_step: 50
           time_per_frame: 100
       - name: ss_50_tps_200
-        uses: PabloLec/website-to-gif@main
+        uses: PabloLec/website-to-gif@dev
         with:
           url: "https://docs.github.com/en/get-started"
           save_path: '/docs/images'

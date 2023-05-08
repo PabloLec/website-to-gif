@@ -72,7 +72,7 @@ inputs:
   number_of_frames:
     description: Number of frames to be captured if no_scroll is true, defaults to 20
     required: false
-    default: false
+    default: 20
 
 runs:
   using: "docker"

@@ -78,6 +78,11 @@ Increase or decrease `scroll_step` and `time_per_frame` to modify file rendering
 #### `scroll_step: 50` `time_per_frame: 200`
 ![](/docs/images/ss_50_tps_200.gif)
 
+You can also capture pages without scrolling
+
+#### `no_scoll: true` `time_per_frame: 100` `time_between_frames: 100` `number_of_frames: 50`
+![](/docs/images/animated_no_scroll.gif)
+
 ## WebP
 
 WebP rendering will take **a lot** of time to benefit from lossless quality and file size optimization.

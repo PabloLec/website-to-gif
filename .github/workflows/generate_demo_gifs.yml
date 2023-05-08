@@ -57,7 +57,7 @@ jobs:
         uses: PabloLec/website-to-gif@develop
         with:
           url: "https://github.com/signup"
-          save_path: "docs/images"
+          save_path: "/docs/images"
           file_name: animated_no_scroll
           no_scoll: true
           time_per_frame: 100
@@ -68,4 +68,4 @@ jobs:
         with:
           name: Generated GIFs
           path: |
-            docs/images/*
+            /docs/images/*

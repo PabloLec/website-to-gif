@@ -53,3 +53,19 @@ jobs:
           file_name: ss_50_tps_200
           scroll_step: 50
           time_per_frame: 200
+      - name: animated_no_scroll
+        uses: PabloLec/website-to-gif@develop
+        with:
+          url: "https://github.com/signup"
+          save_path: "docs/images"
+          file_name: animated_no_scroll
+          no_scoll: true
+          time_per_frame: 100
+          time_between_frames: 100
+          number_of_frames: 50
+      - name: Archive GIFs
+        uses: actions/upload-artifact@v3
+        with:
+          name: Generated GIFs
+          path: |
+            docs/images/*

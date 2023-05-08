@@ -1,2 +1,4 @@
 .idea
 dev.py
+.vscode
+bin/

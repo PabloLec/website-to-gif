@@ -57,6 +57,22 @@ inputs:
     description: Filter used to resize frames, see https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=resize#PIL.Image.Image.resize, defaults to LANCZOS
     required: false
     default: 'LANCZOS'
+  start_delay:
+    description: Number of milliseconds to wait for before starting capture, defaults to 0 (ms)
+    required: false
+    default: 0
+  no_scoll:
+    description: Capture GIF without page scroll, will discard any scroll related parameter, defaults to false
+    required: false
+    default: false
+  time_between_frames:
+    description: Number of milliseconds between frame captures if no_scroll is true, defaults to 100 (ms)
+    required: false
+    default: 100
+  number_of_frames:
+    description: Number of frames to be captured if no_scroll is true, defaults to 20
+    required: false
+    default: false
 
 runs:
   using: "docker"

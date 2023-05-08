@@ -19,6 +19,10 @@ _FINAL_H = os.getenv("INPUT_FINAL_HEIGHT")
 _SCROLL_STEP = os.getenv("INPUT_SCROLL_STEP")
 _TIME_PER_FRAME = os.getenv("INPUT_TIME_PER_FRAME")
 _RESIZING_FILTER = os.getenv("INPUT_RESIZING_FILTER").upper().strip()
+_START_DELAY = int(os.getenv("INPUT_START_DELAY"))
+_NO_SCROLL = bool(os.getenv("INPUT_NO_SCROLL"))
+_TIME_BETWEEN_FRAMES = int(os.getenv("INPUT_TIME_BETWEEN_FRAMES"))
+_NUMBER_OF_FRAMES = int(os.getenv("INPUT_NUMBER_OF_FRAMES"))
 
 _DRIVER: webdriver.Firefox = None
 
@@ -118,6 +122,23 @@ def scroll_page():
     return screenshot_list
 
 
+def capture_page():
+    """Capture page without scrolling.
+
+    Returns:
+        list: List of taken screenshots local files.
+    """
+    screenshot_list = [take_screenshot(num=0)]
+
+    for _ in range(_NUMBER_OF_FRAMES):
+        screenshot = take_screenshot(num=len(screenshot_list))
+        screenshot_list.append(screenshot)
+        sleep(_TIME_BETWEEN_FRAMES / 1000)
+    print(f" - {len(screenshot_list)} screenshots taken")
+
+    return screenshot_list
+
+
 def process_frame(file: str):
     """Open screenshot as a Pillow Image object and resize it.
 
@@ -181,8 +202,10 @@ def create_webp(screenshots: list):
 if __name__ == "__main__":
     start_driver()
     fix_aspect_ratio()
-    screenshots = scroll_page()
+    sleep(_START_DELAY / 1000)
+    screenshots = capture_page() if _NO_SCROLL else scroll_page()
     stop_driver()
+
     if _FORMAT == "GIF":
         create_gif(screenshots=screenshots)
     elif _FORMAT == "WEBP":

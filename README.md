@@ -58,6 +58,7 @@ See [official GitHub doc](https://docs.github.com/en/actions/reference/workflow-
 | final_height         | Final file height                                                                                                             | 360 (px)        | `final_height: 576`              |
 | scroll_step          | Number of pixels by scroll                                                                                                    | 25 (px)         | `scroll_step: 50`                |
 | time_per_frame       | Milliseconds per frame                                                                                                        | 100 (ms)        | `time_per_frame: 200`            |
+| start_delay          | Number of milliseconds to wait for before starting capture                                                                    | 0 (ms)          | `start_delay: 100`               |
 | no_scoll             | Capture GIF without page scroll, will discard any scroll related parameter                                                    | false           | `no_scoll: true`                 |
 | time_between_frames  | Number of milliseconds between frame captures if no_scroll is true                                                            | 100 (ms)        | `time_between_frames: 200`       |
 | number_of_frames     | Number of frames to be captured if no_scroll is true                                                                           | 20              | `number_of_frames: 50`           |

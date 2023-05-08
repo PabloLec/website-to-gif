@@ -44,71 +44,24 @@ See [official GitHub doc](https://docs.github.com/en/actions/reference/workflow-
 
 ## Inputs
 
-#### `url` *mandatory*
-
-Web page URL to be captured.
-| *e.g:* `url: "https://docs.github.com/en/get-started"`
-
-#### `save_path` optional
-
-File saving path, starts with `/`,
-Make sure the path you provide already exists as this action will not create any directory.
-| **defaults to repo root**.*e.g:* `save_path: "/docs/images/"`
-
-#### `file_format` optional
-
-Output file format, currently support GIF and WebP
-| **defaults to 'GIF'**. *e.g:* `file_format: "WebP"`
-
-#### `file_name` optional
-
-File name, **do not include extension or path**
-| **defaults to 'demo'**. *e.g:* `file_name: "ss_25_tps_100.gif"`
-
-#### `window_width` optional
-
-Browser window width
-| **defaults to 1920 (px)**. *e.g:* `window_width: 1366`
-
-#### `window_height` optional
-
-Browser window height
-| **defaults to 1080 (px)**. *e.g:* `window_height: 768`
-
-#### `stop_y` optional
-
-Position where file capture should stop
-| **defaults to bottom of page**. *e.g:* `stop_y: 800`
-
-#### `start_y` optional
-
-Position where file capture should start
-| **defaults to 0 (px)**. *e.g:* `start_y: 1024`
-
-#### `final_width` optional
-
-Final file width
-| **defaults to 640 (px)**. *e.g:* `final_width: 1024`
-
-#### `final_height` optional
-
-Final file height
-| **defaults to 360 (px)**. *e.g:* `final_height: 576`
-
-#### `scroll_step` optional
-
-Number of pixels by scroll
-| **defaults to 25 (px)**. *e.g:* `scroll_step: 50`
-
-#### `time_per_frame` optional
-
-Milliseconds per frame
-| **defaults to 100 (ms)**. *e.g:* `time_per_frame: 200`
-
-#### `resizing_filter` optional
-
-Filter used to resize frames, see https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=resize#PIL.Image.Image.resize
-| **defaults to LANCZOS**. *e.g:* `resizing_filter: "LANCZOS"`
+| Name                 | Description                                                                                                                   | Default         | Example                          |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------|----------------------------------|
+| url                  | Web page URL to be captured. **Required**                                                                                                   |                 | `url: "https://docs.github.com"` |
+| save_path            | File saving path, starts with `/`. Make sure the path you provide already exists as this action will not create any directory. | repo root       | `save_path: "/docs/images/"`     |
+| file_format          | Output file format, currently support GIF and WebP                                                                             | GIF             | `file_format: "WebP"`            |
+| file_name            | File name, **do not include extension or path**                                                                                | demo            | `file_name: "ss_25_tps_100"`     |
+| window_width         | Browser window width                                                                                                          | 1920 (px)       | `window_width: 1366`             |
+| window_height        | Browser window height                                                                                                         | 1080 (px)       | `window_height: 768`             |
+| stop_y               | Position where file capture should stop                                                                                       | bottom of page  | `stop_y: 800`                    |
+| start_y              | Position where file capture should start                                                                                      | 0 (px)          | `start_y: 1024`                  |
+| final_width          | Final file width                                                                                                              | 640 (px)        | `final_width: 1024`              |
+| final_height         | Final file height                                                                                                             | 360 (px)        | `final_height: 576`              |
+| scroll_step          | Number of pixels by scroll                                                                                                    | 25 (px)         | `scroll_step: 50`                |
+| time_per_frame       | Milliseconds per frame                                                                                                        | 100 (ms)        | `time_per_frame: 200`            |
+| no_scoll             | Capture GIF without page scroll, will discard any scroll related parameter                                                    | false           | `no_scoll: true`                 |
+| time_between_frames  | Number of milliseconds between frame captures if no_scroll is true                                                            | 100 (ms)        | `time_between_frames: 200`       |
+| number_of_frames     | Number of frames to be captured if no_scroll is true                                                                           | 20              | `number_of_frames: 50`           |
+| resizing_filter      | Filter used to resize frames, see https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=resize#PIL.Image.Image.resize | LANCZOS         | `resizing_filter: "LANCZOS"`     |
 
 ## Examples
 

@@ -1,13 +1,10 @@
 name: Update demo files
 
 on:
-  push:
-    branches:
-      - 'main'
   workflow_dispatch:
 
 jobs:
-  generate-gif:
+  generate-gif-main:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -62,10 +59,22 @@ jobs:
           time_per_frame: 200
           window_width: 1280
           window_height: 720
+      - name: animated_no_scroll
+        uses: PabloLec/website-to-gif@develop
+        with:
+          url: "https://github.com/signup"
+          save_path: "/docs/images"
+          file_name: animated_no_scroll
+          no_scoll: true
+          time_per_frame: 100
+          time_between_frames: 100
+          number_of_frames: 50
+          window_width: 1280
+          window_height: 720
       - name: Commit file to GH repo
         run: |
           git config --global user.name "PabloLec/website-to-gif"
           git config --global user.email "action@github.com"
           git add .
-          git commit -m 'Update file'
+          git commit -m 'Update demo GIFs'
           git push

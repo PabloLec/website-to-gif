@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-gif:
+  generate-gif-dev:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -66,15 +66,17 @@ jobs:
         uses: PabloLec/website-to-gif@develop
         with:
           url: "https://github.com/signup"
-          save_path: "docs/images"
+          save_path: "/docs/images"
           file_name: animated_no_scroll
           no_scoll: true
           time_per_frame: 100
           time_between_frames: 100
           number_of_frames: 50
+          window_width: 1280
+          window_height: 720
       - name: Archive GIFs
         uses: actions/upload-artifact@v3
         with:
           name: Generated GIFs
           path: |
-            docs/images/*
+            ./docs/images/*

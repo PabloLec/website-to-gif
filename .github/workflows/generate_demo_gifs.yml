@@ -9,7 +9,7 @@ jobs:
   generate-gif-cron:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: ss_15_tps_80
         uses: PabloLec/website-to-gif@develop
         with:

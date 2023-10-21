@@ -10,7 +10,7 @@ jobs:
   generate-gif-dev:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: ss_15_tps_80
         uses: PabloLec/website-to-gif@develop
         with:
@@ -80,3 +80,10 @@ jobs:
           name: Generated GIFs
           path: |
             ./docs/images/*
+      - name: Commit file to GH repo
+        run: |
+          git config --global user.name "PabloLec/website-to-gif"
+          git config --global user.email "action@github.com"
+          git add .
+          git commit -m 'Update demo GIFs'
+          git push

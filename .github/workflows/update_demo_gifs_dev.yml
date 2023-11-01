@@ -1,4 +1,4 @@
-name: Update demo files (dev)
+name: Generate and update demo GIFs
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-gif-dev:
+  generate-and-push-gifs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

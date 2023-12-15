@@ -75,7 +75,7 @@ jobs:
           window_width: 1280
           window_height: 720
       - name: Archive GIFs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Generated GIFs
           path: |

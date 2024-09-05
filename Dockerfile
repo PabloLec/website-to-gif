@@ -1,4 +1,4 @@
-FROM debian:12.6
+FROM debian:12.7
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install curl jq python3 python3-pip firefox-esr libwebp-dev

@@ -58,7 +58,7 @@ jobs:
           url: "https://github.com"
           save_path: "/docs/images"
           file_name: animated_no_scroll
-          no_scoll: true
+          no_scroll: true
           start_y: 1200
           time_per_frame: 100
           time_between_frames: 100

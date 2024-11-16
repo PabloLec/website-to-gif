@@ -61,7 +61,7 @@ inputs:
     description: Number of milliseconds to wait for before starting capture, defaults to 0 (ms)
     required: false
     default: 0
-  no_scoll:
+  no_scroll:
     description: Capture GIF without page scroll, will discard any scroll related parameter, defaults to false
     required: false
     default: false

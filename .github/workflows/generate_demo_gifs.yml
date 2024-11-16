@@ -55,7 +55,7 @@ jobs:
       - name: animated_no_scroll
         uses: PabloLec/website-to-gif@develop
         with:
-          url: "https://github.com"
+          url: "https://github.com/features/copilot"
           save_path: "/docs/images"
           file_name: animated_no_scroll
           no_scroll: true

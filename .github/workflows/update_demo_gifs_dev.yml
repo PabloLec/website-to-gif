@@ -3,7 +3,7 @@ name: Generate and update demo GIFs
 on:
   push:
     branches:
-      - 'develop'
+      - "develop"
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
         uses: PabloLec/website-to-gif@develop
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
-          save_path: '/docs/images'
+          save_path: "/docs/images"
           file_format: gif
           file_name: ss_15_tps_80
           scroll_step: 15
@@ -26,7 +26,7 @@ jobs:
         uses: PabloLec/website-to-gif@develop
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
-          save_path: '/docs/images'
+          save_path: "/docs/images"
           file_name: ss_25_tps_100
           scroll_step: 25
           time_per_frame: 100
@@ -36,7 +36,7 @@ jobs:
         uses: PabloLec/website-to-gif@develop
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
-          save_path: '/docs/images'
+          save_path: "/docs/images"
           file_name: ss_50_tps_50
           scroll_step: 50
           time_per_frame: 50
@@ -46,7 +46,7 @@ jobs:
         uses: PabloLec/website-to-gif@develop
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
-          save_path: '/docs/images'
+          save_path: "/docs/images"
           file_name: ss_50_tps_100
           scroll_step: 50
           time_per_frame: 100
@@ -56,7 +56,7 @@ jobs:
         uses: PabloLec/website-to-gif@develop
         with:
           url: "https://docs.github.com/en/get-started/quickstart/be-social"
-          save_path: '/docs/images'
+          save_path: "/docs/images"
           file_name: ss_50_tps_200
           scroll_step: 50
           time_per_frame: 200
@@ -65,10 +65,11 @@ jobs:
       - name: animated_no_scroll
         uses: PabloLec/website-to-gif@develop
         with:
-          url: "https://github.com/signup"
+          url: "https://github.com/features/copilot"
           save_path: "/docs/images"
           file_name: animated_no_scroll
-          no_scoll: true
+          no_scroll: true
+          start_y: 1500
           time_per_frame: 100
           time_between_frames: 100
           number_of_frames: 50
